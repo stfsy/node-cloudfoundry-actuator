@@ -14,7 +14,18 @@ ExpressJS actuator middleware for Cloud Foundry Applications
 ## Example
 
 ```js
+'use strict'
 
+const express = require('express')
+const app = express()
+
+const actuator = require('express-cloudfoundry-actuator-middleware')
+
+// ...
+
+app.use(actuator())
+
+// ...
 ```
 
 ## Installation
