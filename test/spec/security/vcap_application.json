@@ -1,7 +1,7 @@
 {
     "application_users": [],
     "application_id": "my-application-id",
-    "cf_api": "https://my-cf.api.com",
+    "cf_api": "http://localhost:5123",
     "instance_id": "bb7935245adf3e650dfb7c58a06e9ece",
     "instance_index": 0,
     "version": "3464e092-1c13-462e-a47c-807c30318a50",
