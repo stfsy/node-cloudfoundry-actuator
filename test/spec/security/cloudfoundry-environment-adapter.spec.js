@@ -16,13 +16,13 @@ describe('CloudFoundryEnvironmentAdapter', () => {
     describe('.getCloudControllerUrl', () => {
         it('should the cloud controller url', () => {
             const url = environmentAdapter.getCloudControllerUrl()
-            expect(url).to.equal('https://my-cf.api.com')
+            expect(url).to.equal('http://localhost:5123')
         })
     })
     describe('.getCloudControllerInfoUrl', () => {
         it('should return the cloud controller info endpoint url', () => {
             const url = environmentAdapter.getCloudControllerInfoUrl()
-            expect(url).to.equal('https://my-cf.api.com/info')
+            expect(url).to.equal('http://localhost:5123/info')
         })
     })
     describe('.getApplicationId', () => {
@@ -34,7 +34,7 @@ describe('CloudFoundryEnvironmentAdapter', () => {
     describe('.getPermissionsUrl', () => {
         it('should return the absolute permissions url of current application', () => {
             const url = environmentAdapter.getPermissionsUrl()
-            expect(url).to.equal('https://my-cf.api.com/v2/apps/my-application-id/permissions')
+            expect(url).to.equal('http://localhost:5123/v2/apps/my-application-id/permissions')
         })
     })
 })
