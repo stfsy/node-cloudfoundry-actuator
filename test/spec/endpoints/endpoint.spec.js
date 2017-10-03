@@ -7,7 +7,7 @@ const Endpoint = require(resolve('lib/endpoints/endpoint'))
 describe('Endpoint', () => {
     let endpoint = null
     beforeEach(() => {
-        endpoint = new Endpoint('health')
+        endpoint = new Endpoint({name: 'health'})
     })
     describe('.getPath', () => {
         it('should return the endpoints name', () => {
