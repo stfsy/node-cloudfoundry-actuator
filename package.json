@@ -27,7 +27,14 @@
         "type": "git",
         "url": "https://github.com/stfsy/express-cloudfoundry-actuator-middleware"
     },
-    "keywords": ["Cloud Foundry", "Actuator", "Spring Boot", "Apps Manager", "Middleware", "Express"],
+    "keywords": [
+        "Cloud Foundry",
+        "Actuator",
+        "Spring Boot",
+        "Apps Manager",
+        "Middleware",
+        "Express"
+    ],
     "author": "Stefan Pfaffel",
     "license": "MIT",
     "devDependencies": {
