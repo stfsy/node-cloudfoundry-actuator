@@ -8,8 +8,17 @@ const env = fs.readFileSync(resolve('test/spec/security/vcap_application.json'),
     encoding: 'utf-8'
 })
 process.env.VCAP_APPLICATION = env
+
 const cloudControllerMockServer = require(resolve('test/spec/security/cloud-controller-mock-server'))
 const cloudFoundryCloudControllerAdapter = require(resolve('lib/security/cloudfoundry-cloud-controller-adapter'))
+
+const jwt = require('jsonwebtoken').sign({
+    a: 'b',
+    c: 1
+}, fs.readFileSync(resolve('test/spec/security/signing_key.pem'), {
+    encoding: 'utf-8'
+}), { algorithm: 'RS256'})
+
 
 describe('CloudFoundryCloudControllerAdapter', () => {
     after(() => {
@@ -37,7 +46,7 @@ describe('CloudFoundryCloudControllerAdapter', () => {
     })
     describe('.fetchPermissions', () => {
         it('should return the permissions of the current user', () => {
-            return cloudFoundryCloudControllerAdapter.fetchPermissions()
+            return cloudFoundryCloudControllerAdapter.fetchPermissions(jwt)
                 .then((result) => {
                     expect(result.readSensitive).to.equal(true)
                     expect(result.readBasic).to.equal(true)
