@@ -1,5 +1,11 @@
 'use strict'
 
+const jwt = require('jsonwebtoken')
+const resolve = require('path').resolve
+const fs = require('fs')
+const publicKey = fs.readFileSync(resolve('test/spec/security/verifying_key.pem'), {
+    encoding: 'utf-8'
+})
 const express = require('express')
 const app = express()
 
@@ -15,7 +21,7 @@ app.get('/token_keys', (req, res) => {
             "use": "sig",
             "kid": "key-1",
             "alg": "RS256",
-            "value": "-----BEGIN PUBLIC KEY-----\nMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDHFr+KICms+tuT1OXJwhCUmR2d\nKVy7psa8xzElSyzqx7oJyfJ1JZyOzToj9T5SfTIq396agbHJWVfYphNahvZ/7uMX\nqHxf+ZH9BL1gk9Y6kCnbM5R60gfwjyW1/dQPjOzn9N394zd2FJoFHwdq9Qs0wBug\nspULZVNRxq7veq/fzwIDAQAB\n-----END PUBLIC KEY-----",
+            "value": publicKey,
             "n": "AMcWv4ogKaz625PU5cnCEJSZHZ0pXLumxrzHMSVLLOrHugnJ8nUlnI7NOiP1PlJ9Mirf3pqBsclZV9imE1qG9n_u4xeofF_5kf0EvWCT1jqQKdszlHrSB_CPJbX91A-M7Of03f3jN3YUmgUfB2r1CzTAG6CylQtlU1HGru96r9_P"
         }]
     }))
@@ -38,6 +44,19 @@ app.get('/info', (req, res) => {
 
 // uaa permission
 app.get('/v2/apps/my-application-id/permissions', (req, res) => {
+    const bearer = req.header('authorization')
+
+    if (!bearer) {
+        res.status(401).send()
+        return
+    }
+    const token = bearer.replace('Bearer ', '')
+
+    if (!token) {
+        res.status(401).send()
+    }
+    const decodedToken = jwt.verify(token, publicKey, { algorithm: 'RS256'})
+
     res.setHeader('content-type', 'application/json')
     res.status(200).send(JSON.stringify({
         "read_sensitive_data": true,
