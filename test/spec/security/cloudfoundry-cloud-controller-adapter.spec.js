@@ -17,7 +17,9 @@ const jwt = require('jsonwebtoken').sign({
     c: 1
 }, fs.readFileSync(resolve('test/spec/security/signing_key.pem'), {
     encoding: 'utf-8'
-}), { algorithm: 'RS256'})
+}), {
+    algorithm: 'RS256'
+})
 
 
 describe('CloudFoundryCloudControllerAdapter', () => {
@@ -36,11 +38,19 @@ describe('CloudFoundryCloudControllerAdapter', () => {
                 })
         })
     })
+    describe('.fetchTokenEndpoint', () => {
+        it('should rturn the absolute url of the token endpoint', () => {
+            return cloudFoundryCloudControllerAdapter.fetchTokenEndpoint()
+                .then((result) => {
+                    expect(result).to.equal('http://localhost:5123/oauth/token')
+                })
+        })
+    })
     describe('.fetchInfo', () => {
         it('should return the absolute url of the token endpoint', () => {
             return cloudFoundryCloudControllerAdapter.fetchInfo()
                 .then((result) => {
-                    expect(result.token_endpoint).to.equal('http://localhost:5123')
+                    expect(result.token_endpoint).to.equal('http://localhost:5123/oauth/token')
                 })
         })
     })
