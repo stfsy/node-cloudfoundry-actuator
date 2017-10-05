@@ -12,7 +12,7 @@ const app = express()
 const port = process.env.PORT || 5123
 
 // token keys
-app.get('/token_keys', (req, res) => {
+app.get('/oauth/token/token_keys', (req, res) => {
     res.setHeader('content-type', 'application/json')
     res.status(200).send(JSON.stringify({
         "keys": [{
@@ -37,7 +37,7 @@ app.get('/info', (req, res) => {
         "version": 0,
         "description": "",
         "authorization_endpoint": "http:// + req.get('host')",
-        "token_endpoint": "http://" + req.get('host'),
+        "token_endpoint": "http://" + req.get('host') + '/oauth/token',
         "allow_debug": true
     }))
 })
