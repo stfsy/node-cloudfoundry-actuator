@@ -28,7 +28,7 @@ class UaaMockTokenProvider {
     }
 
     createTokenWithInvalidKeyIdentifier() {
-
+        return this._sign(this._payload({}), this._header({kid: '12'}))
     }
 
     createExpiredToken() {
