@@ -21,6 +21,12 @@ class UaaMockTokenProvider {
         return this._sign(this._payload({}), this._header({}), privateKey.replace('z', 'y'))
     }
 
+    createTokenWithInvalidIssuer() {
+        return this._sign(this._payload({
+            iss: 'abc'
+        }))
+    }
+
     createTokenWithInvalidKeyIdentifier() {
 
     }
@@ -28,7 +34,7 @@ class UaaMockTokenProvider {
     createExpiredToken() {
         return this._sign(this._payload({
             iat: Math.floor(Date.now() / 1000) - 60,
-            exp: Math.floor(Date.now() / 1000) - 30
+            exp: Math.floor(Date.now() / 1000) - 30,
         }), this._header({
 
         }))
@@ -36,11 +42,13 @@ class UaaMockTokenProvider {
 
     _payload({
         iat = Math.floor(Date.now() / 1000) - 30,
-        exp = Math.floor(Date.now() / 1000) + 30
+        exp = Math.floor(Date.now() / 1000) + 30,
+        iss = 'http://localhost:5123/oauth/token'
     }) {
         return {
             iat,
-            exp
+            exp,
+            iss
         }
     }
 
