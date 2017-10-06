@@ -19,24 +19,30 @@ describe('CloudFoundryTokenValidator', () => {
             cloudControllerMockServer.close(resolve)
         })
     })
-    describe('._validateSignature', () => {
+    describe('.validate', () => {
         it('should resolve if a jwt was validated', () => {
-            return cloudFoundryTokenValidator._validateSignature(uaaTokenProvider.createValidToken())
+            return cloudFoundryTokenValidator.validate(uaaTokenProvider.createValidToken())
         })
         it('should reject if no token was given', () => {
             return new Promise((resolve, reject) => {
-                return cloudFoundryTokenValidator._validateSignature().then(reject, resolve)                
+                return cloudFoundryTokenValidator.validate().then(reject, resolve)                
             })
         })
         it('should reject if a token cannot be validated', () => {
             return new Promise((resolve, reject) => {
-                return cloudFoundryTokenValidator._validateSignature(uaaTokenProvider.createInvalidToken())
+                return cloudFoundryTokenValidator.validate(uaaTokenProvider.createInvalidToken())
                     .then(reject, resolve)
             })
         })
         it('should reject if a token is expired', () => {
             return new Promise((resolve, reject) => {
-                return cloudFoundryTokenValidator._validateSignature(uaaTokenProvider.createExpiredToken())
+                return cloudFoundryTokenValidator.validate(uaaTokenProvider.createExpiredToken())
+                    .then(reject, resolve)
+            })
+        })
+        it('should reject if the issuer is unknown', () => {
+            return new Promise((resolve, reject) => {
+                return cloudFoundryTokenValidator.validate(uaaTokenProvider.createTokenWithInvalidIssuer())
                     .then(reject, resolve)
             })
         })
