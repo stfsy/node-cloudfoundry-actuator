@@ -42,7 +42,7 @@ describe('CloudFoundryCloudControllerAdapter', () => {
         it('should rturn the absolute url of the token endpoint', () => {
             return cloudFoundryCloudControllerAdapter.fetchTokenEndpoint()
                 .then((result) => {
-                    expect(result).to.equal('http://localhost:5123/oauth/token')
+                    expect(result).to.equal('http://localhost:5123')
                 })
         })
     })
@@ -50,7 +50,7 @@ describe('CloudFoundryCloudControllerAdapter', () => {
         it('should return the absolute url of the token endpoint', () => {
             return cloudFoundryCloudControllerAdapter.fetchInfo()
                 .then((result) => {
-                    expect(result.token_endpoint).to.equal('http://localhost:5123/oauth/token')
+                    expect(result.token_endpoint).to.equal('http://localhost:5123')
                 })
         })
     })
