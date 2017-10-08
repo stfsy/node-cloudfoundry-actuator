@@ -38,7 +38,8 @@ describe('HealthEndpoint', () => {
             const response = mockResponse()
             const result = endpoint.handle({}, response)
             expect(result.build).not.to.be.undefined
-            expect(result.git).not.to.be.undefined
+            expect(result.build.version).to.equal(process.env.npm_package_version)
+            expect(result.build.name).to.equal(process.env.npm_package_name)
         })
     })
 })
