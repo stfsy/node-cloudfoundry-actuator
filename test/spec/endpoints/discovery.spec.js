@@ -9,7 +9,9 @@ const InfoEndpoint = require(resolve('lib/endpoints/info'))
 describe('DiscoveryEndpoint', () => {
     let endpoint = null
     beforeEach(() => {
-        endpoint = new DiscoveryEndpoint([new HealthEndpoint(), new InfoEndpoint()])
+        endpoint = new DiscoveryEndpoint({
+            contributors: [new HealthEndpoint(), new InfoEndpoint()]
+        })
     })
     describe('.getPath', () => {
         it('should return the endpoints name', () => {
