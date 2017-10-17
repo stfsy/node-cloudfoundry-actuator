@@ -59,7 +59,7 @@ describe('DiscoveryEndpoint', () => {
             const result = endpoint.handle(mockRequest(), response)
             expect(result._links.health.href).to.equal('https://localhost:3000/cloudfoundryapplication/health')
         })
-        it('should return an absolute link to the health endpoint', () => {
+        it('should return an absolute link to the info endpoint', () => {
             const response = mockResponse()
             const result = endpoint.handle(mockRequest(), response)
             expect(result._links.info.href).to.equal('https://localhost:3000/cloudfoundryapplication/info')
