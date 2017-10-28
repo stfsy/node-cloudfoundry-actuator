@@ -34,12 +34,11 @@ describe('HealthEndpoint', () => {
             expect(response.getHeader()['Access-Control-Allow-Headers']).to.equal('authorization')
             expect(response.getHeader()['Access-Control-Allow-Methods']).to.equal('GET')
         })
-        it('should return the current status', () => {
+        it('should return application infos', () => {
             const response = mockResponse()
             const result = endpoint.handle({}, response)
-            expect(result.build).not.to.be.undefined
-            expect(result.build.version).to.equal(process.env.npm_package_version)
-            expect(result.build.name).to.equal(process.env.npm_package_name)
+            expect(result.build.name).to.equal(process.env.NPM_PACKAGE_NAME)
+            expect(result.build.version).to.equal(process.env.NPM_PACKAGE_VERSION)
         })
     })
 })
