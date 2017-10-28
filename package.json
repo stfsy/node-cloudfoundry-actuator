@@ -4,10 +4,11 @@
     "description": "Express actuator middleware for Cloud Foundry Applications",
     "main": "lib/index.js",
     "scripts": {
+        "actuator": "cloudfoundry-actuator-cli",
         "setup": "npm run release-patch",
         "start": "node lib/server",
         "test-watch": "watch \"npm run test\" lib test",
-        "test": "mocha test/spec/**/*.spec.js --check-leaks",
+        "test": "npm run actuator && mocha test/spec/**/*.spec.js --check-leaks",
         "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- test/spec/**/*.spec.js --check-leaks",
         "docs": "jsdoc lib/ --recurse --destination docs --configure .jsdoc.json --readme README.md ",
         "preversion": "npm run test",
@@ -46,6 +47,7 @@
         "jsdoc": "^3.4.0",
         "minami": "^1.1.1",
         "mocha": "^4.0.1",
+        "node-cloudfoundry-actuator-cli": "^0.3.0",
         "watch": "^1.0.2"
     },
     "engines": {
