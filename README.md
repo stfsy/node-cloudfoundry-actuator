@@ -9,6 +9,9 @@
 [![Github issues](https://img.shields.io/github/issues/stfsy/node-cloudfoundry-actuator.svg)](https://github.com/stfsy/node-cloudfoundry-actuator/issues)
 [![License](https://img.shields.io/npm/l/node-cloudfoundry-actuator.svg)](https://github.com/stfsy/node-cloudfoundry-actuator/blob/master/LICENSE)
 
+## Please note:
+**This is work in progress and right now basically a copy of [Express Cloud Foundry Actuator Middleware Example](https://github.com/stfsy/express-cloudfoundry-actuator-middleware-example). In the long term Express Actuator Middleware will depend on this module.**
+
 Actuator support for NodeJS Cloud Foundry Applications.
 
 Currently provides **health** and **info** endpoints for Cloud Foundry Apps Manager. These two and future Endpoints are restricted to users that 
