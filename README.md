@@ -19,6 +19,10 @@ Use this middleware in conjunction with [Cloud Foundry Actuator CLI](https://git
 
 See [Express Cloud Foundry Actuator Middleware Example](https://github.com/stfsy/express-cloudfoundry-actuator-middleware-example) for an example application with full integration of [Cloud Foundry Actuator CLI](https://github.com/stfsy/node-cloudfoundry-actuator-cli) and [Express Cloud Foundry Actuator Middleware](https://github.com/stfsy/express-cloudfoundry-actuator-middleware).
 
+![Cloud Foundry App overview with Health Check](readme_cf_app_overview.png)
+![Cloud Foundry App settings with short app info](readme_cf_app_settings.png)
+![Cloud Foundry App settings with app info popup](readme_cf_app_info.png)
+
 ## Installation
 
 ```
