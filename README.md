@@ -17,6 +17,8 @@ Currently provides **health** and **info** endpoints for Cloud Foundry Apps Mana
 
 Use [Cloud Foundry Actuator CLI](https://github.com/stfsy/node-cloudfoundry-actuator-cli) to generate a build **info** file ahead of deployment time. This file is optional, but we can't show version infos without it. 
 
+**Health** status will be shown automatically and will be costumizable in the future.
+
 See [Express Cloud Foundry Actuator Middleware Example](https://github.com/stfsy/express-cloudfoundry-actuator-middleware-example) for an example application with full integration of [Cloud Foundry Actuator CLI](https://github.com/stfsy/node-cloudfoundry-actuator-cli) and [Express Cloud Foundry Actuator Middleware](https://github.com/stfsy/express-cloudfoundry-actuator-middleware).
 
 ## Installation
