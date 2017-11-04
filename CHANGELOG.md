@@ -1,3 +1,13 @@
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/stfsy/express-cloudfoundry-actuator-middleware/compare/v0.1.0...v1.0.0) (2017-11-04)
+
+
+### Bug Fixes
+
+* parse empty object if vcap app is not present ([c6d7f70](https://github.com/stfsy/express-cloudfoundry-actuator-middleware/commit/c6d7f70))
+
+
+
 <a name="0.1.0"></a>
 # 0.1.0 (2017-10-28)
 

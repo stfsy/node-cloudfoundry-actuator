@@ -1,6 +1,6 @@
 {
     "name": "express-cloudfoundry-actuator-middleware",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "description": "Express actuator middleware for Cloud Foundry Applications",
     "main": "lib/index.js",
     "scripts": {
