@@ -11,7 +11,9 @@
 
 ExpressJS actuator middleware for NodeJS Cloud Foundry Applications.
 
-Currently provides **health** and **info** endpoints for Cloud Foundry Apps Manager. These two and future Endpoints are restricted to users that are currently logged into the Apps Manager and have sufficient privileges to view sensitive information.
+Currently provides **health** and **info** endpoints for Cloud Foundry Apps Manager. These two and future Endpoints are restricted to users that 
+- are currently logged into the Apps Manager and 
+- have sufficient privileges to view sensitive information.
 
 Use this middleware in conjunction with [Actuator CLI](https://github.com/stfsy/node-cloudfoundry-actuator-cli) to generate a build info file ahead of deployment time. This file is optional, but we can't show version infos without it. 
 
