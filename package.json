@@ -1,7 +1,7 @@
 {
-    "name": "express-cloudfoundry-actuator-middleware",
+    "name": "node-cloudfoundry-actuator",
     "version": "1.0.0",
-    "description": "Express actuator middleware for Cloud Foundry Applications",
+    "description": "Actuator support for NodeJS Cloud Foundry Applications",
     "main": "lib/index.js",
     "scripts": {
         "actuator": "cloudfoundry-actuator-cli",
@@ -21,12 +21,12 @@
         "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r"
     },
     "bugs": {
-        "url": "https://github.com/stfsy/express-cloudfoundry-actuator-middleware/issues"
+        "url": "https://github.com/stfsy/node-cloudfoundry-actuator/issues"
     },
-    "homepage": "https://github.com/stfsy/express-cloudfoundry-actuator-middleware#readme",
+    "homepage": "https://github.com/stfsy/node-cloudfoundry-actuator#readme",
     "repository": {
         "type": "git",
-        "url": "https://github.com/stfsy/express-cloudfoundry-actuator-middleware"
+        "url": "https://github.com/stfsy/node-cloudfoundry-actuator"
     },
     "keywords": [
         "Cloud Foundry",
