@@ -15,9 +15,9 @@ Currently provides **health** and **info** endpoints for Cloud Foundry Apps Mana
 - are currently logged into the Apps Manager and 
 - have sufficient privileges to view sensitive information.
 
-Use this middleware in conjunction with [Actuator CLI](https://github.com/stfsy/node-cloudfoundry-actuator-cli) to generate a build info file ahead of deployment time. This file is optional, but we can't show version infos without it. 
+Use this middleware in conjunction with [Cloud Foundry Actuator CLI](https://github.com/stfsy/node-cloudfoundry-actuator-cli) to generate a build info file ahead of deployment time. This file is optional, but we can't show version infos without it. 
 
-See [Express Cloud Foundry Actuator Middleware Example](https://github.com/stfsy/express-cloudfoundry-actuator-middleware-example) for an example application with full integration of [Actuator CLI](https://github.com/stfsy/node-cloudfoundry-actuator-cli) and [Express Cloud Foundry Actuator Middleware](https://github.com/stfsy/express-cloudfoundry-actuator-middleware).
+See [Express Cloud Foundry Actuator Middleware Example](https://github.com/stfsy/express-cloudfoundry-actuator-middleware-example) for an example application with full integration of [Cloud Foundry Actuator CLI](https://github.com/stfsy/node-cloudfoundry-actuator-cli) and [Express Cloud Foundry Actuator Middleware](https://github.com/stfsy/express-cloudfoundry-actuator-middleware).
 
 ## Installation
 
