@@ -9,13 +9,15 @@
 [![Github issues](https://img.shields.io/github/issues/stfsy/express-cloudfoundry-actuator-middleware.svg)](https://github.com/stfsy/express-cloudfoundry-actuator-middleware/issues)
 [![License](https://img.shields.io/npm/l/express-cloudfoundry-actuator-middleware.svg)](https://github.com/stfsy/express-cloudfoundry-actuator-middleware/blob/master/LICENSE)
 
-ExpressJS actuator middleware for Cloud Foundry Applications
+ExpressJS actuator middleware for NodeJS Cloud Foundry Applications.
+
+Currently provides **health** and **info** endpoints for Cloud Foundry Apps Manager. These two and future Endpoints are restricted to users that are currently logged into the Apps Manager and have sufficient privileges to view sensitive information.
+
+Use this middleware in conjunction with [Actuator CLI](https://github.com/stfsy/node-cloudfoundry-actuator-cli) to generate a build info file ahead of deployment time. This file is optional, but we can't show version infos without it. 
+
+See [Express Cloud Foundry Actuator Middleware Example](https://github.com/stfsy/express-cloudfoundry-actuator-middleware-example) for an example application with full integration of [Actuator CLI](https://github.com/stfsy/node-cloudfoundry-actuator-cli) and [Express Cloud Foundry Actuator Middleware](https://github.com/stfsy/express-cloudfoundry-actuator-middleware).
 
 ## Example
-
-Use [Actuator CLI](https://github.com/stfsy/node-cloudfoundry-actuator-cli) to generate a build info file. This file is optional, but we can't show version infos without it. Then add actuator middleware before your application endpoints.
-
-See [Express Actuator Middleware Example](https://github.com/stfsy/express-cloudfoundry-actuator-middleware-example) for an example application.
 
 ```js
 'use strict'
