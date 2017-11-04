@@ -13,7 +13,9 @@ ExpressJS actuator middleware for Cloud Foundry Applications
 
 ## Example
 
-Use [Actuator CLI](https://github.com/stfsy/node-cloudfoundry-actuator-cli) to generate build time info file. Add actuator middleware before your application endpoints.
+Use [Actuator CLI](https://github.com/stfsy/node-cloudfoundry-actuator-cli) to generate a build info file. This file is optional, but we can't show version infos without it. Then add actuator middleware before your application endpoints.
+
+See [Express Actuator Middleware Example](https://github.com/stfsy/express-cloudfoundry-actuator-middleware-example) for an example application.
 
 ```js
 'use strict'
