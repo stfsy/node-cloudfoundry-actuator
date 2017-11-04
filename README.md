@@ -17,6 +17,12 @@ Use this middleware in conjunction with [Actuator CLI](https://github.com/stfsy/
 
 See [Express Cloud Foundry Actuator Middleware Example](https://github.com/stfsy/express-cloudfoundry-actuator-middleware-example) for an example application with full integration of [Actuator CLI](https://github.com/stfsy/node-cloudfoundry-actuator-cli) and [Express Cloud Foundry Actuator Middleware](https://github.com/stfsy/express-cloudfoundry-actuator-middleware).
 
+## Installation
+
+```
+npm install express-cloudfoundry-actuator-middleware --save
+```
+
 ## Example
 
 ```js
@@ -32,12 +38,6 @@ const actuator = require('express-cloudfoundry-actuator-middleware')
 app.use(actuator())
 
 // ...
-```
-
-## Installation
-
-```
-npm install express-cloudfoundry-actuator-middleware --save
 ```
 
 ## License
