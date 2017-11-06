@@ -32,9 +32,7 @@
         "Cloud Foundry",
         "Actuator",
         "Spring Boot",
-        "Apps Manager",
-        "Middleware",
-        "Express"
+        "Apps Manager"
     ],
     "author": "Stefan Pfaffel",
     "license": "MIT",
