@@ -1,5 +1,0 @@
----
-name: cloudfoundry_actuator_nodejs_support
-buildpack: nodejs_buildpack
-env:
-  NODE_DEBUG: cloudfoundry-actuator-middleware
