@@ -17,6 +17,25 @@
 
 
 
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/stfsy/node-cloudfoundry-actuator/compare/v1.0.0...v2.0.0) (2017-11-08)
+
+
+### Bug Fixes
+
+* type errors if no endpoint was found ([8d61af3](https://github.com/stfsy/node-cloudfoundry-actuator/commit/8d61af3))
+
+
+### Features
+
+* **registry.js:** add trace endpoint ([801cfcf](https://github.com/stfsy/node-cloudfoundry-actuator/commit/801cfcf))
+* add request response sanitizer ([915271e](https://github.com/stfsy/node-cloudfoundry-actuator/commit/915271e))
+* add web trace repository ([e9ab479](https://github.com/stfsy/node-cloudfoundry-actuator/commit/e9ab479))
+* **trace.js:** return traces from web trace repo ([1e39842](https://github.com/stfsy/node-cloudfoundry-actuator/commit/1e39842))
+* trace incoming requests and responses ([daa48a4](https://github.com/stfsy/node-cloudfoundry-actuator/commit/daa48a4))
+
+
+
 <a name="1.0.0"></a>
 # [1.0.0](https://github.com/stfsy/express-cloudfoundry-actuator-middleware/compare/v0.1.0...v1.0.0) (2017-11-04)
 
