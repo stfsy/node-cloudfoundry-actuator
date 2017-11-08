@@ -4,7 +4,7 @@ const resolve = require('path').resolve
 const expect = require('chai').expect
 const InfoEndpoint = require(resolve('lib/endpoints/info'))
 
-describe('HealthEndpoint', () => {
+describe('InfoEndpoint', () => {
     let endpoint = null
     beforeEach(() => {
         endpoint = new InfoEndpoint()
