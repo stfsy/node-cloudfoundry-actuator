@@ -29,10 +29,35 @@ npm install node-cloudfoundry-actuator --save
 ```
 
 ## Example
+The **Cloud Foundry Apps Manager** needs to be able to call various actuator endpoints to fetch health state and build informations. Applications integrating this library need to expose these **endpoints**.
 
+A typical **Connect** middleware implementation might look like this:
 ```js
-tbd
+'use strict'
+
+const Actuator = require('node-cloudfoundry-actuator')
+const actuator = new Actuator()
+
+module.exports = (options) => {
+    return (req, res, next) => {
+        let handled = false
+        
+        try {
+            handled = actuator.handle(req, res)
+        } catch (e) {
+            // handle errors gracefully
+        }
+
+        if (!handled) {
+            next()
+        }
+    }
+}
 ```
+
+The **main** class of this library has one public method **handle** which accepts a **HttpRequest** and **HttpResponse**. Instances of this class will handle positive responses and expect the implementing library to handle errors.
+
+Only requests to a path matching **/cloudfoundryapplication[/\*]** will be intercepted and answered.
 
 ## Screenshots
 
