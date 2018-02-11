@@ -37,8 +37,8 @@ describe('InfoEndpoint', () => {
         it('should return application infos', () => {
             const response = mockResponse()
             const result = endpoint.handle({}, response)
-            expect(result.build.name).to.equal(process.env.NPM_PACKAGE_NAME)
-            expect(result.build.version).to.equal(process.env.NPM_PACKAGE_VERSION)
+            expect(result.build.name).to.contain('actuator')
+            expect(result.build.version).to.match(/\d.\d.\d/)
         })
     })
 })
