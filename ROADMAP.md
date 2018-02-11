@@ -1,8 +1,5 @@
 # ROADMAP
 
-### Spin-off
-- Finish moving core into dedicated npm module
-
 ### Registry
 - Allow adding costum actuator contributors
 - Allow disabling built in actuator endpoints
