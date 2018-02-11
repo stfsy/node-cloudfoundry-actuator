@@ -7,6 +7,3 @@
 ### Health Contributors
 - Allow adding health contributors
 - Check status of nested health contributors to compute overall status
-
-### Trace Endpoint
-- Add a Trace Endpoint to allow displaying recent request on Cloud Foundry Apps Manager
