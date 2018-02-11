@@ -67,7 +67,6 @@ describe('DiscoveryEndpoint', () => {
         it('should not return an absolute link to the discovery endpoint', () => {
             const response = mockResponse()
             const result = endpoint.handle(mockRequest(), response)
-            console.log(result)
             expect(result._links[""]).to.be.undefined
         })
     })
