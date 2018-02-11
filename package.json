@@ -4,7 +4,7 @@
     "description": "Actuator support for NodeJS Cloud Foundry Applications",
     "main": "lib/index.js",
     "scripts": {
-        "actuator": "cloudfoundry-actuator-cli",
+        "actuator": "cloudfoundry-actuator-cli --git --npm",
         "setup": "npm run release-patch",
         "start": "node lib/server",
         "test-watch": "watch \"npm run test\" lib test",
