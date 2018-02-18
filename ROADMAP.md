@@ -1,5 +1,8 @@
 # ROADMAP
 
+### Mappings Endpoint
+- Add mappings endpoint
+
 ### Registry
 - Allow adding costum actuator contributors
 
