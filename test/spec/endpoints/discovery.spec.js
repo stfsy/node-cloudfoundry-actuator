@@ -23,7 +23,7 @@ describe('DiscoveryEndpoint', () => {
             expect(endpoint.getName()).to.equal('')
         })
     })
-    describe('.handle', () => {
+    describe('.handleRequest', () => {
         let mockResponse = () => {
             const header = {}
             return {
@@ -39,35 +39,47 @@ describe('DiscoveryEndpoint', () => {
         }
         it('should set response headers', () => {
             const response = mockResponse()
-            endpoint.handle(mockRequest(), response)
-            expect(response.getHeader()['Access-Control-Allow-Origin']).to.equal('*')
-            expect(response.getHeader()['Access-Control-Allow-Headers']).to.equal('authorization')
-            expect(response.getHeader()['Access-Control-Allow-Methods']).to.equal('GET')
+            return endpoint.handleRequest(mockRequest(), response)
+                .then(() => {
+                    expect(response.getHeader()['Access-Control-Allow-Origin']).to.equal('*')
+                    expect(response.getHeader()['Access-Control-Allow-Headers']).to.equal('authorization')
+                    expect(response.getHeader()['Access-Control-Allow-Methods']).to.equal('GET')
+                })
         })
         it('should return links to registered endpoints', () => {
             const response = mockResponse()
-            const result = endpoint.handle(mockRequest(), response)
-            expect(result._links).not.to.be.undefined
+            return endpoint.handleRequest(mockRequest(), response)
+                .then((result) => {
+                    expect(result._links).not.to.be.undefined
+                })
         })
         it('should return an absolute link to itself', () => {
             const response = mockResponse()
-            const result = endpoint.handle(mockRequest(), response)
-            expect(result._links.self.href).to.equal('https://localhost:3000/cloudfoundryapplication')
+            return endpoint.handleRequest(mockRequest(), response)
+                .then((result) => {
+                    expect(result._links.self.href).to.equal('https://localhost:3000/cloudfoundryapplication')
+                })
         })
         it('should return an absolute link to the health endpoint', () => {
             const response = mockResponse()
-            const result = endpoint.handle(mockRequest(), response)
-            expect(result._links.health.href).to.equal('https://localhost:3000/cloudfoundryapplication/health')
+            return endpoint.handleRequest(mockRequest(), response)
+                .then((result) => {
+                    expect(result._links.health.href).to.equal('https://localhost:3000/cloudfoundryapplication/health')
+                })
         })
         it('should return an absolute link to the info endpoint', () => {
             const response = mockResponse()
-            const result = endpoint.handle(mockRequest(), response)
-            expect(result._links.info.href).to.equal('https://localhost:3000/cloudfoundryapplication/info')
+            return endpoint.handleRequest(mockRequest(), response)
+                .then((result) => {
+                    expect(result._links.info.href).to.equal('https://localhost:3000/cloudfoundryapplication/info')
+                })
         })
         it('should not return an absolute link to the discovery endpoint', () => {
             const response = mockResponse()
-            const result = endpoint.handle(mockRequest(), response)
-            expect(result._links[""]).to.be.undefined
+            return endpoint.handleRequest(mockRequest(), response)
+                .then((result) => {
+                    expect(result._links[""]).to.be.undefined
+                })
         })
     })
 })

@@ -7,7 +7,9 @@ const InstanceAwareEndpoint = require(resolve('lib/endpoints/instance-aware-endp
 describe('InstanceAwareEndpoint', () => {
     let endpoint = null
     beforeEach(() => {
-        endpoint = new InstanceAwareEndpoint({name: 'health'})
+        endpoint = new InstanceAwareEndpoint({
+            name: 'health'
+        })
     })
     describe('.getPath', () => {
         it('should return the endpoints name', () => {
@@ -19,7 +21,7 @@ describe('InstanceAwareEndpoint', () => {
             expect(endpoint.getName()).to.equal('health')
         })
     })
-    describe('.handle', () => {
+    describe('.handleRequest', () => {
         let mockResponse = () => {
             const header = {}
             return {
@@ -29,10 +31,12 @@ describe('InstanceAwareEndpoint', () => {
         }
         it('should set response headers', () => {
             const response = mockResponse()
-            endpoint.handle({}, response)
-            expect(response.getHeader()['Access-Control-Allow-Origin']).to.equal('*')
-            expect(response.getHeader()['Access-Control-Allow-Headers']).to.equal('authorization, x-cf-app-instance')
-            expect(response.getHeader()['Access-Control-Allow-Methods']).to.equal('GET')
+            return endpoint.handleRequest({}, response)
+                .then(() => {
+                    expect(response.getHeader()['Access-Control-Allow-Origin']).to.equal('*')
+                    expect(response.getHeader()['Access-Control-Allow-Headers']).to.equal('authorization, x-cf-app-instance')
+                    expect(response.getHeader()['Access-Control-Allow-Methods']).to.equal('GET')
+                })
         })
     })
 })

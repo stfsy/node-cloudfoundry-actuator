@@ -19,7 +19,7 @@ describe('InfoEndpoint', () => {
             expect(endpoint.getName()).to.equal('info')
         })
     })
-    describe('.handle', () => {
+    describe('.handleRequest', () => {
         let mockResponse = () => {
             const header = {}
             return {
@@ -29,16 +29,20 @@ describe('InfoEndpoint', () => {
         }
         it('should set response headers', () => {
             const response = mockResponse()
-            endpoint.handle({}, response)
-            expect(response.getHeader()['Access-Control-Allow-Origin']).to.equal('*')
-            expect(response.getHeader()['Access-Control-Allow-Headers']).to.equal('authorization')
-            expect(response.getHeader()['Access-Control-Allow-Methods']).to.equal('GET')
+            return endpoint.handleRequest({}, response)
+                .then(() => {
+                    expect(response.getHeader()['Access-Control-Allow-Origin']).to.equal('*')
+                    expect(response.getHeader()['Access-Control-Allow-Headers']).to.equal('authorization')
+                    expect(response.getHeader()['Access-Control-Allow-Methods']).to.equal('GET')
+                })
         })
         it('should return application infos', () => {
             const response = mockResponse()
-            const result = endpoint.handle({}, response)
-            expect(result.build.name).to.contain('actuator')
-            expect(result.build.version).to.match(/\d.\d.\d/)
+            return endpoint.handleRequest({}, response)
+                .then((result) => {
+                    expect(result.build.name).to.contain('actuator')
+                    expect(result.build.version).to.match(/\d.\d.\d/)
+                })
         })
     })
 })
