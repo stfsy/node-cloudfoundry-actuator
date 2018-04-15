@@ -10,14 +10,21 @@ describe('RequestResponseSanitizer', () => {
     let clientRequest = null
     let serverResponse = null
     beforeEach(() => {
-        clientRequest = new http.ClientRequest('http://localhost:8080')
-        clientRequest.setHeader('accept', 'application/json')
-        clientRequest.setHeader('content-type', 'application/xml')
-        clientRequest.setHeader('x-test', 'true')
-        serverResponse = new http.ServerResponse(clientRequest)
-        serverResponse.setHeader('content-type', 'application/xml')
-        serverResponse.setHeader('x-server', 'true')
-        serverResponse.setHeader('x-test', 'true')
+        clientRequest = {
+            _headers: {
+                'accept': 'application/json',
+                'content-type': 'application/xml',
+                'host': 'localhost:8080',
+                'x-test': 'true'
+            },
+        }
+        serverResponse = {
+            _headers: {
+                'content-type': 'application/xml',
+                'x-server': 'true',
+                'x-test': 'true'
+            }
+        }
     })
     describe('.sanitizedRequestHeaders', () => {
         it('should return all headers', () => {
@@ -29,7 +36,7 @@ describe('RequestResponseSanitizer', () => {
             expect(sanitizedHeaders['x-test']).to.equal('true')
         })
         it('should remove authorization header', () => {
-            clientRequest.setHeader('authorization', 'Bearer aksdöfjöasdfkjöasldfaw')
+            clientRequest._headers.authorization = 'Bearer aksdöfjöasdfkjöasldfaw'
             const sanitizedHeaders = requestResponseSanitizer.sanitizedRequestHeaders(clientRequest)
             expect(Object.keys(sanitizedHeaders).length).to.equal(4)
             expect(sanitizedHeaders['host']).to.equal('localhost:8080')
@@ -38,7 +45,7 @@ describe('RequestResponseSanitizer', () => {
             expect(sanitizedHeaders['x-test']).to.equal('true')
         })
         it('should remove case sensitive authorization header', () => {
-            clientRequest.setHeader('AUTHORIZATION', 'Bearer aksdöfjöasdfkjöasldfaw')
+            clientRequest._headers.AUTHORIZATION = 'Bearer aksdöfjöasdfkjöasldfaw'
             const sanitizedHeaders = requestResponseSanitizer.sanitizedRequestHeaders(clientRequest)
             expect(Object.keys(sanitizedHeaders).length).to.equal(4)
             expect(sanitizedHeaders['host']).to.equal('localhost:8080')
@@ -47,7 +54,7 @@ describe('RequestResponseSanitizer', () => {
             expect(sanitizedHeaders['x-test']).to.equal('true')
         })
         it('should remove cookie header', () => {
-            clientRequest.setHeader('cookie', 'b=aksdöfjöasdfkjöasldfaw')
+            clientRequest._headers.cookie = 'b=aksdöfjöasdfkjöasldfaw'
             const sanitizedHeaders = requestResponseSanitizer.sanitizedRequestHeaders(clientRequest)
             expect(Object.keys(sanitizedHeaders).length).to.equal(4)
             expect(sanitizedHeaders['host']).to.equal('localhost:8080')
@@ -56,7 +63,7 @@ describe('RequestResponseSanitizer', () => {
             expect(sanitizedHeaders['x-test']).to.equal('true')
         })
         it('should remove case sensitive cookie header', () => {
-            clientRequest.setHeader('CooKie', 'a=aksdöfjöasdfkjöasldfaw')
+            clientRequest._headers.CooKie = 'a=aksdöfjöasdfkjöasldfaw'
             const sanitizedHeaders = requestResponseSanitizer.sanitizedRequestHeaders(clientRequest)
             expect(Object.keys(sanitizedHeaders).length).to.equal(4)
             expect(sanitizedHeaders['host']).to.equal('localhost:8080')
@@ -74,7 +81,7 @@ describe('RequestResponseSanitizer', () => {
             expect(sanitizedHeaders['x-server']).to.equal('true')
         })
         it('should remove authorization header', () => {
-            clientRequest.setHeader('authorization', 'Bearer aksdöfjöasdfkjöasldfaw')
+            clientRequest._headers.authorization = 'Bearer aksdöfjöasdfkjöasldfaw'
             const sanitizedHeaders = requestResponseSanitizer.sanitizedResponseHeaders(serverResponse)
             expect(Object.keys(sanitizedHeaders).length).to.equal(3)
             expect(sanitizedHeaders['content-type']).to.equal('application/xml')
@@ -82,7 +89,7 @@ describe('RequestResponseSanitizer', () => {
             expect(sanitizedHeaders['x-server']).to.equal('true')
         })
         it('should remove case sensitive authorization header', () => {
-            clientRequest.setHeader('AUTHORIZATION', 'Bearer aksdöfjöasdfkjöasldfaw')
+            clientRequest._headers.AUTHORIZATION = 'Bearer aksdöfjöasdfkjöasldfaw'
             const sanitizedHeaders = requestResponseSanitizer.sanitizedResponseHeaders(serverResponse)
             expect(Object.keys(sanitizedHeaders).length).to.equal(3)
             expect(sanitizedHeaders['content-type']).to.equal('application/xml')
@@ -90,7 +97,7 @@ describe('RequestResponseSanitizer', () => {
             expect(sanitizedHeaders['x-server']).to.equal('true')
         })
         it('should remove cookie header', () => {
-            clientRequest.setHeader('cookie', 'b=aksdöfjöasdfkjöasldfaw')
+            clientRequest._headers.cookie = 'b=aksdöfjöasdfkjöasldfaw'
             const sanitizedHeaders = requestResponseSanitizer.sanitizedResponseHeaders(serverResponse)
             expect(Object.keys(sanitizedHeaders).length).to.equal(3)
             expect(sanitizedHeaders['content-type']).to.equal('application/xml')
@@ -98,7 +105,7 @@ describe('RequestResponseSanitizer', () => {
             expect(sanitizedHeaders['x-server']).to.equal('true')
         })
         it('should remove case sensitive cookie header', () => {
-            clientRequest.setHeader('CooKie', 'a=aksdöfjöasdfkjöasldfaw')
+            clientRequest._headers.CooKie = 'a=aksdöfjöasdfkjöasldfaw'
             const sanitizedHeaders = requestResponseSanitizer.sanitizedResponseHeaders(serverResponse)
             expect(Object.keys(sanitizedHeaders).length).to.equal(3)
             expect(sanitizedHeaders['content-type']).to.equal('application/xml')

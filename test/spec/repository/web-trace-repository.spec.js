@@ -11,14 +11,20 @@ describe('WebTraceRepository', () => {
     let clientRequest = null
     let serverResponse = null
     beforeEach(() => {
-        clientRequest = new http.ClientRequest('http://localhost:8080')
-        clientRequest.setHeader('accept', 'application/json')
-        clientRequest.setHeader('content-type', 'application/xml')
-        clientRequest.setHeader('x-test', 'true')
-        serverResponse = new http.ServerResponse(new http.IncomingMessage(null))
-        serverResponse.setHeader('content-type', 'application/xml')
-        serverResponse.setHeader('x-server', 'true')
-        serverResponse.setHeader('x-test', 'true')
+        clientRequest = {
+            _headers: {
+                'accept': 'application/json',
+                'content-type': 'application/xml',
+                'x-test': 'true'
+            }
+        }
+        serverResponse = {
+            _headers: {
+                'content-type': 'application/xml',
+                'x-server': 'true',
+                'x-test': 'true'
+            }
+        }
     })
     describe('.add', () => {
         it('should only keep a maximum length of elements', () => {
