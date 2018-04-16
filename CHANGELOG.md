@@ -1,3 +1,18 @@
+<a name="2.2.0"></a>
+# [2.2.0](https://github.com/stfsy/node-cloudfoundry-actuator/compare/v2.1.0...v2.2.0) (2018-04-16)
+
+
+### Bug Fixes
+
+* failing tests ([1516d33](https://github.com/stfsy/node-cloudfoundry-actuator/commit/1516d33))
+
+
+### Features
+
+* allow disabling of endpoints ([18d7a1a](https://github.com/stfsy/node-cloudfoundry-actuator/commit/18d7a1a))
+
+
+
 <a name="2.1.0"></a>
 # [2.1.0](https://github.com/stfsy/node-cloudfoundry-actuator/compare/v2.0.0...v2.1.0) (2018-02-14)
 
