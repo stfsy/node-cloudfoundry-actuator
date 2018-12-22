@@ -1,3 +1,13 @@
+<a name="2.3.0"></a>
+# [2.3.0](https://github.com/stfsy/node-cloudfoundry-actuator/compare/v2.2.0...v2.3.0) (2018-12-22)
+
+
+### Features
+
+* update dependencies ([7464331](https://github.com/stfsy/node-cloudfoundry-actuator/commit/7464331))
+
+
+
 <a name="2.2.0"></a>
 # [2.2.0](https://github.com/stfsy/node-cloudfoundry-actuator/compare/v2.1.0...v2.2.0) (2018-04-16)
 

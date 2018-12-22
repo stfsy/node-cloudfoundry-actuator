@@ -1,6 +1,6 @@
 {
     "name": "node-cloudfoundry-actuator",
-    "version": "2.2.0",
+    "version": "2.3.0",
     "description": "Actuator support for NodeJS Cloud Foundry Applications",
     "main": "lib/index.js",
     "scripts": {
