@@ -18,7 +18,7 @@ class UaaMockTokenProvider {
     }
 
     createInvalidToken() {
-        return this._sign(this._payload({}), this._header({}), privateKey.replace('z', 'y'))
+        return this._sign(this._payload({}), this._header({}), publicKey)
     }
 
     createTokenWithInvalidIssuer() {
