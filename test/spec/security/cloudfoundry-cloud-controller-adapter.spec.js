@@ -11,16 +11,7 @@ process.env.VCAP_APPLICATION = env
 
 const cloudControllerMockServer = require(resolve('test/spec/security/cloud-controller-mock-server'))
 const cloudFoundryCloudControllerAdapter = require(resolve('lib/security/cloudfoundry-cloud-controller-adapter'))
-
-const jwt = require('jsonwebtoken').sign({
-    a: 'b',
-    c: 1
-}, fs.readFileSync(resolve('test/spec/security/signing_key.pem'), {
-    encoding: 'utf-8'
-}), {
-    algorithm: 'RS256'
-})
-
+const jwt = require('./cloudfoundry-uaa-mock-token-provider').createValidToken()
 
 describe('CloudFoundryCloudControllerAdapter', () => {
     after(() => {
