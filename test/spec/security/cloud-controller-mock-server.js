@@ -1,11 +1,7 @@
 'use strict'
 
 const jwt = require('jsonwebtoken')
-const resolve = require('path').resolve
-const fs = require('fs')
-const publicKey = fs.readFileSync(resolve('test/spec/security/verifying_key.pem'), {
-    encoding: 'utf-8'
-})
+const publicKey = require('./cloudfoundry-uaa-mock-token-provider').publicKey()
 const express = require('express')
 const app = express()
 
