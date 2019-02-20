@@ -10,7 +10,7 @@ describe('DiscoveryEndpoint', () => {
     let endpoint = null
     beforeEach(() => {
         endpoint = new DiscoveryEndpoint({
-            contributors: [new HealthEndpoint(), new InfoEndpoint()]
+            contributors: {'/health': new HealthEndpoint(), '/info': new InfoEndpoint()}
         })
     })
     describe('.getPath', () => {
