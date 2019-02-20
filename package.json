@@ -43,6 +43,7 @@
         "express": "^4.16.4",
         "istanbul": "^0.4.4",
         "jsdoc": "^3.4.0",
+        "keypair": "^1.0.1",
         "minami": "^1.1.1",
         "mocha": "^5.2.0",
         "node-cloudfoundry-actuator-cli": "^2.1.0",
