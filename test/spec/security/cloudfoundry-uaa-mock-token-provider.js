@@ -1,15 +1,9 @@
 'use strict'
 
 const jsonwebtoken = require('jsonwebtoken')
-const fs = require('fs')
-const resolve = require('path').resolve
-const publicKey = fs.readFileSync(resolve('test/spec/security/verifying_key.pem'), {
-    encoding: 'utf-8'
-})
-
-const privateKey = fs.readFileSync(resolve('test/spec/security/signing_key.pem'), {
-    encoding: 'utf-8'
-})
+const keypair = require('keypair');
+const pair = keypair();
+const notMatchingPrivateKey = keypair().private
 
 class UaaMockTokenProvider {
 
@@ -18,7 +12,7 @@ class UaaMockTokenProvider {
     }
 
     createInvalidToken() {
-        return this._sign(this._payload({}), this._header({}), publicKey)
+        return this._sign(this._payload({}), this._header({}), notMatchingPrivateKey)
     }
 
     createTokenWithInvalidIssuer() {
@@ -38,6 +32,10 @@ class UaaMockTokenProvider {
         }), this._header({
 
         }))
+    }
+
+    publicKey() {
+        return pair.public
     }
 
     _payload({
@@ -62,7 +60,7 @@ class UaaMockTokenProvider {
         }
     }
 
-    _sign(payload, header = this._header({}), key = privateKey) {
+    _sign(payload, header = this._header({}), key = pair.private) {
         return jsonwebtoken.sign(payload, key, {
             algorithm: 'RS256',
             header
