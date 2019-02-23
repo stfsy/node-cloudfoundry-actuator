@@ -56,7 +56,7 @@
         "node": "6"
     },
     "dependencies": {
-        "jsonwebtoken": "^8.4.0",
-        "modules-scan": "^0.1.0"
+        "jsonwebtoken": "^8.5.0",
+        "modules-scan": "^0.4.0"
     }
 }
