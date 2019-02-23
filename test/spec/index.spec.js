@@ -11,32 +11,41 @@ describe('RequestHandler', () => {
     beforeEach(() => {
         handler = new RequestHandler()
     })
-    it('._handle', () => {
-        let sc = 0
-        let body = ''
-        return handler._handle({
-            path: '/cloudfoundryapplication/',
-            header: () => 'bearer ' + jwt,
-            get: () => 'localhost:5122',
-            originalUrl: '/cloudfoundryapplication'
-        }, {
-            on: () => true,
-            status: (statusCode) => {
-                sc = statusCode
-                return {
-                    send: (responseBody) => {
-                        body = responseBody
+    describe('._handle', () => {
+        it('calls next if not a cloudfoundryapplication path is called', () => {
+            return new Promise((resolve) => {
+                return handler._handle({
+                    path: '/abc'
+                }, {}, resolve)
+            })
+        })
+        it('returns found endpoints', () => {
+            let sc = 0
+            let body = ''
+            return handler._handle({
+                path: '/cloudfoundryapplication/',
+                header: () => 'bearer ' + jwt,
+                get: () => 'localhost:5122',
+                originalUrl: '/cloudfoundryapplication'
+            }, {
+                on: () => true,
+                status: (statusCode) => {
+                    sc = statusCode
+                    return {
+                        send: (responseBody) => {
+                            body = responseBody
+                        }
                     }
-                }
-            },
-            setHeader: () => {
+                },
+                setHeader: () => {
 
-            }
-        }).then(() => {
-            expect(sc).to.equal(200)
-            expect(body).to.contain('/info')
-            expect(body).to.contain('/health')
-            expect(body).to.contain('/cloudfoundryapplication')
+                }
+            }).then(() => {
+                expect(sc).to.equal(200)
+                expect(body).to.contain('/info')
+                expect(body).to.contain('/health')
+                expect(body).to.contain('/cloudfoundryapplication')
+            })
         })
     })
 })
