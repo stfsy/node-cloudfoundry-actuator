@@ -7,11 +7,7 @@ const expect = require('chai').expect
 describe('CloudFoundryEnvironmentAdapter', () => {
     let environmentAdapter = null      
     beforeEach(() => {
-        require.cache['lib/security/cloudfoundry-environment-adapter'] = null
-        const env = fs.readFileSync(resolve('test/spec/security/vcap_application.json'), { encoding: 'utf-8'})
-        process.env.VCAP_APPLICATION = env
-        environmentAdapter = require(resolve('lib/security/cloudfoundry-environment-adapter'))
-  
+        environmentAdapter = require(resolve('lib/security/cloudfoundry-environment-adapter'))  
     })
     describe('.getCloudControllerUrl', () => {
         it('should the cloud controller url', () => {
