@@ -19,6 +19,30 @@ describe('RequestHandler', () => {
                 }, {}, resolve)
             })
         })
+        it('returns 404 if an unknown endpoint was called', () => {
+            let sc = 0
+            return handler._handle({
+                path: '/cloudfoundryapplication/snd',
+                header: () => 'bearer ' + jwt,
+                get: () => 'localhost:5122',
+                originalUrl: '/cloudfoundryapplication'
+            }, {
+                on: () => true,
+                status: (statusCode) => {
+                    sc = statusCode
+                    return {
+                        send: (responseBody) => {
+
+                        }
+                    }
+                },
+                setHeader: () => {
+
+                }
+            }).then(() => {
+                expect(sc).to.equal(404)
+            })
+        })
         it('returns found endpoints', () => {
             let sc = 0
             let body = ''
