@@ -11,7 +11,7 @@
         "pretest": "node test/setup",
         "test": " npm run actuator && cross-env NODE_ENV=mock-e2e-cf-actuator  mocha test/spec/**/*.spec.js --check-leaks",
         "posttest": "node test/tearDown",
-        "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- test/spec/**/*.spec.js --check-leaks",
+        "coverage": "npm run pretest && cross-env NODE_ENV=mock-e2e-cf-actuator istanbul cover node_modules/mocha/bin/_mocha -- test/spec/**/*.spec.js --check-leaks && npm run posttest",
         "docs": "jsdoc lib/ --recurse --destination docs --configure .jsdoc.json --readme README.md ",
         "preversion": "npm run test",
         "version": "npm run changelog && git add -A CHANGELOG.md",
