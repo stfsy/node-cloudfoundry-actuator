@@ -11,17 +11,19 @@ describe('RequestHandler', () => {
     beforeEach(() => {
         handler = new RequestHandler()
     })
-    describe('._handle', () => {
+    describe('.handle', () => {
         it('calls next if not a cloudfoundryapplication path is called', () => {
             return new Promise((resolve) => {
-                return handler._handle({
+                return handler.handle({
                     path: '/abc'
-                }, {}, resolve)
+                }, {
+                    on: () => {}
+                }, resolve)
             })
         })
         it('returns 404 if an unknown endpoint was called', () => {
             let sc = 0
-            return handler._handle({
+            return handler.handle({
                 path: '/cloudfoundryapplication/snd',
                 header: () => 'bearer ' + jwt,
                 get: () => 'localhost:5122',
@@ -46,7 +48,7 @@ describe('RequestHandler', () => {
         it('returns found endpoints', () => {
             let sc = 0
             let body = ''
-            return handler._handle({
+            return handler.handle({
                 path: '/cloudfoundryapplication/',
                 header: () => 'bearer ' + jwt,
                 get: () => 'localhost:5122',
