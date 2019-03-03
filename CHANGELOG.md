@@ -1,3 +1,20 @@
+# [3.0.0](https://github.com/stfsy/node-cloudfoundry-actuator/compare/v2.3.0...v3.0.0) (2019-03-03)
+
+
+### Bug Fixes
+
+* 500 if no endpoint was found ([6ed06d6](https://github.com/stfsy/node-cloudfoundry-actuator/commit/6ed06d6))
+* endpoints is not an object ([1654c04](https://github.com/stfsy/node-cloudfoundry-actuator/commit/1654c04))
+* forward missing next param to _handle ([3395f9c](https://github.com/stfsy/node-cloudfoundry-actuator/commit/3395f9c))
+* make node 6 compatible ([5703603](https://github.com/stfsy/node-cloudfoundry-actuator/commit/5703603))
+
+
+### Features
+
+* **index.js:** make connect middleware compatible ([0b956f9](https://github.com/stfsy/node-cloudfoundry-actuator/commit/0b956f9))
+
+
+
 <a name="2.3.0"></a>
 # [2.3.0](https://github.com/stfsy/node-cloudfoundry-actuator/compare/v2.2.0...v2.3.0) (2018-12-22)
 
