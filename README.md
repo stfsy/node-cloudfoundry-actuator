@@ -38,17 +38,11 @@ A typical **Connect** middleware implementation might look like this:
 const Actuator = require('node-cloudfoundry-actuator')
 const actuator = new Actuator()
 
-module.exports = (options) => {
+module.exports = () => {
     return (req, res, next) => {
-        let handled = false
-        
         try {
-            handled = actuator.handle(req, res)
+            actuator.handle(req, res, next)
         } catch (e) {
-            // handle errors gracefully
-        }
-
-        if (!handled) {
             next()
         }
     }
