@@ -41,11 +41,11 @@
     "devDependencies": {
         "chai": "^4.2.0",
         "chai-spies": "^1.0.0",
-        "conventional-changelog-cli": "^2.0.31",
-        "cross-env": "^5.2.0",
-        "express": "^4.16.4",
+        "conventional-changelog-cli": "^2.0.32",
+        "cross-env": "^5.2.1",
+        "express": "^4.17.1",
         "istanbul": "^0.4.4",
-        "jsdoc": "^3.4.0",
+        "jsdoc": "^3.6.3",
         "keypair": "^1.0.1",
         "minami": "^1.1.1",
         "mocha": "^5.2.0",
@@ -56,7 +56,7 @@
         "node": "6"
     },
     "dependencies": {
-        "jsonwebtoken": "^8.5.0",
+        "jsonwebtoken": "^8.5.1",
         "modules-scan": "^0.4.0"
     }
 }
