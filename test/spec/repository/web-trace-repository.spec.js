@@ -12,17 +12,21 @@ describe('WebTraceRepository', () => {
     let serverResponse = null
     beforeEach(() => {
         clientRequest = {
-            _headers: {
-                'accept': 'application/json',
-                'content-type': 'application/xml',
-                'x-test': 'true'
+            getHeaders: () => {
+                return {
+                    'accept': 'application/json',
+                    'content-type': 'application/xml',
+                    'x-test': 'true'
+                }
             }
         }
         serverResponse = {
-            _headers: {
-                'content-type': 'application/xml',
-                'x-server': 'true',
-                'x-test': 'true'
+            getHeaders: () => {
+                return {
+                    'content-type': 'application/xml',
+                    'x-server': 'true',
+                    'x-test': 'true'
+                }
             }
         }
     })
