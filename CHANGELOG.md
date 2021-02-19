@@ -1,3 +1,15 @@
+# [3.3.0](https://github.com/stfsy/node-cloudfoundry-actuator/compare/v3.0.0...v3.3.0) (2021-02-19)
+
+
+### Features
+
+* do not use deprecated headers api ([47ad8a3](https://github.com/stfsy/node-cloudfoundry-actuator/commit/47ad8a3367dedc301e0bf291be0558c7885ecb56))
+* update dependencies ([f984eb0](https://github.com/stfsy/node-cloudfoundry-actuator/commit/f984eb04709cb1e450ee974dd6ab550db6c132cb))
+* update outdated dependencies ([29f929c](https://github.com/stfsy/node-cloudfoundry-actuator/commit/29f929c74c3d58e90842490464c5e1b5e329fbf5))
+* update vulnerable dependencies ([32fb65c](https://github.com/stfsy/node-cloudfoundry-actuator/commit/32fb65c734d3b976a0745eff4c90c51895c12e07))
+
+
+
 # [3.2.0](https://github.com/stfsy/node-cloudfoundry-actuator/compare/v3.1.0...v3.2.0) (2021-02-09)
 
 
