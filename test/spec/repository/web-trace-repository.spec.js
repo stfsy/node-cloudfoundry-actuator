@@ -12,12 +12,10 @@ describe('WebTraceRepository', () => {
     let serverResponse = null
     beforeEach(() => {
         clientRequest = {
-            getHeaders: () => {
-                return {
-                    'accept': 'application/json',
-                    'content-type': 'application/xml',
-                    'x-test': 'true'
-                }
+            headers: {
+                'accept': 'application/json',
+                'content-type': 'application/xml',
+                'x-test': 'true'
             }
         }
         serverResponse = {

@@ -11,13 +11,11 @@ describe('RequestResponseSanitizer', () => {
     let serverResponse = null
     beforeEach(() => {
         clientRequest = {
-            getHeaders: () => {
-                return {
-                    'accept': 'application/json',
-                    'content-type': 'application/xml',
-                    'host': 'localhost:8080',
-                    'x-test': 'true'
-                }
+            headers: {
+                'accept': 'application/json',
+                'content-type': 'application/xml',
+                'host': 'localhost:8080',
+                'x-test': 'true'
             }
         }
         serverResponse = {
