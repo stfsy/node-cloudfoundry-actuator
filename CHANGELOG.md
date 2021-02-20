@@ -1,3 +1,12 @@
+# [3.4.0](https://github.com/stfsy/node-cloudfoundry-actuator/compare/v3.3.0...v3.4.0) (2021-02-20)
+
+
+### Bug Fixes
+
+* getHeaders is not a function type rror ([a1ff7a2](https://github.com/stfsy/node-cloudfoundry-actuator/commit/a1ff7a279af702bcf1d0c24bc339444e06ab2f96))
+
+
+
 # [3.3.0](https://github.com/stfsy/node-cloudfoundry-actuator/compare/v3.0.0...v3.3.0) (2021-02-19)
 
 
