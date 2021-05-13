@@ -1,3 +1,14 @@
+# [3.5.0](https://github.com/stfsy/node-cloudfoundry-actuator/compare/v3.4.0...v3.5.0) (2021-05-13)
+
+
+### Features
+
+* update outdated dependencies ([6b5fc4a](https://github.com/stfsy/node-cloudfoundry-actuator/commit/6b5fc4ac5ffa4363466d832733f5c27dfa0fe43d))
+* update vulnerable dependencies ([2eaee4e](https://github.com/stfsy/node-cloudfoundry-actuator/commit/2eaee4e84e984f8af782f185a6709f1a3936a68a))
+* update vulnerable dependencies ([6655609](https://github.com/stfsy/node-cloudfoundry-actuator/commit/6655609dbad8ff8b4687c9f6d1e8398be13bcdbd))
+
+
+
 # [3.4.0](https://github.com/stfsy/node-cloudfoundry-actuator/compare/v3.3.0...v3.4.0) (2021-02-20)
 
 
