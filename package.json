@@ -58,6 +58,6 @@
     },
     "dependencies": {
         "jsonwebtoken": "^8.5.1",
-        "modules-scan": "^0.4.0"
+        "modules-scan": "^0.8.0"
     }
 }
