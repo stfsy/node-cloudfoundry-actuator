@@ -43,7 +43,7 @@
         "chai-spies": "^1.0.0",
         "conventional-changelog-cli": "^2.2.2",
         "cross-env": "^7.0.3",
-        "express": "^4.17.2",
+        "express": "^4.17.3",
         "istanbul": "^0.4.4",
         "jsdoc": "^3.6.10",
         "keypair": "^1.0.4",
