@@ -39,7 +39,7 @@
     "author": "Stefan Pfaffel",
     "license": "MIT",
     "devDependencies": {
-        "chai": "^4.3.6",
+        "chai": "^4.3.7",
         "chai-spies": "^1.0.0",
         "conventional-changelog-cli": "^2.2.2",
         "cross-env": "^7.0.3",
